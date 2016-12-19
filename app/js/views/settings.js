@@ -1,4 +1,4 @@
-var whatsApp = require('remote').getGlobal("whatsApp");
+var saavn = require('remote').getGlobal("saavn");
 var settings = require('remote').getGlobal('settings');
 var config = require('remote').getGlobal('config');
 
@@ -54,7 +54,7 @@ var SettingsView = {
         }
         config.saveConfiguration();
         config.applyConfiguration();
-        whatsApp.window.reload();
+        saavn.window.reload();
     }
 };
 

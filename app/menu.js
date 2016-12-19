@@ -131,7 +131,7 @@
     ];
 
     if (process.platform == 'darwin') {
-        var name = 'WhatsApp Desktop';
+        var name = 'Saavn Desktop';
         template.unshift({
             label: name,
             submenu: [

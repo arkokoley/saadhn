@@ -57,7 +57,7 @@
         },
 
         applyConfiguration() {
-            whatsApp.window.webContents.on('dom-ready', function (event, two) {
+            saavn.window.webContents.on('dom-ready', function (event, two) {
                 var noAvatar = '.chat-avatar{display: none}';
                 var noPreview = '.chat-secondary .chat-status{z-index: -999;}';
 
@@ -79,7 +79,7 @@
             });
 
             if (config.get("useProxy")) {
-                var session = whatsApp.window.webContents.session;
+                var session = saavn.window.webContents.session;
                 var httpProxy = config.get("httpProxy");
                 var httpsProxy = config.get("httpsProxy") || httpProxy;
                 if(httpProxy) {
@@ -107,31 +107,31 @@
         }
     };
 
-    global.whatsApp = {
+    global.saavn = {
         init() {
-            whatsApp.createMenu();
-            whatsApp.createTray();
+            saavn.createMenu();
+            saavn.createTray();
 
-            whatsApp.clearCache();
+            saavn.clearCache();
             config.init();
-            whatsApp.openWindow();
+            saavn.openWindow();
             config.applyConfiguration();
         },
 
         createMenu() {
-            whatsApp.menu =
+            saavn.menu =
                 AppMenu.buildFromTemplate(require('./menu'));
-                AppMenu.setApplicationMenu(whatsApp.menu);
+                AppMenu.setApplicationMenu(saavn.menu);
         },
 
         createTray() {
-            whatsApp.tray = new AppTray(__dirname + '/assets/img/trayTemplate.png');
+            saavn.tray = new AppTray(__dirname + '/assets/img/trayTemplate.png');
 
-            whatsApp.tray.on('clicked', () => {
-                whatsApp.window.show();
+            saavn.tray.on('clicked', () => {
+                saavn.window.show();
             });
 
-            whatsApp.tray.setToolTip('WhatsApp Desktop');
+            saavn.tray.setToolTip('Saavn Desktop');
         },
 
         clearCache() {
@@ -141,7 +141,7 @@
         },
 
         openWindow() {
-            whatsApp.window = new BrowserWindow({
+            saavn.window = new BrowserWindow({
                 "y": config.get("posY"),
                 "x": config.get("posX"),
                 "width": config.get("width"),
@@ -150,19 +150,19 @@
                 "minHeight": 600,
                 "icon": __dirname + 'assets/icon/icon.png',
                 //"type": "toolbar",
-                "title": "WhatsApp",
+                "title": "Saavn",
                 "webPreferences": {
                   "nodeIntegration": false,
                   "preload": join(__dirname, 'js', 'injected.js')
                 }
             });
 
-            whatsApp.window.loadURL('https://web.whatsapp.com', {
+            saavn.window.loadURL('http://www.saavn.com', {
                 userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.52 Safari/537.36'
             });
 
             if (config.get("useProxy")) {
-                var session = whatsApp.window.webContents.session;
+                var session = saavn.window.webContents.session;
                 var httpProxy = config.get("httpProxy");
                 var httpsProxy = config.get("httpsProxy") || httpProxy;
                 if (httpProxy) {
@@ -170,9 +170,9 @@
                 }
             }
 
-            whatsApp.window.show();
+            saavn.window.show();
 
-            whatsApp.window.on('page-title-updated', onlyOSX((event, title) => {
+            saavn.window.on('page-title-updated', onlyOSX((event, title) => {
                 var count = title.match(/\((\d+)\)/);
                     count = count ? count[1] : '';
 
@@ -181,40 +181,40 @@
                 //     app.dock.bounce('informational');
             }));
 
-            whatsApp.window.on('page-title-updated', onlyLinux((event, title) => {
+            saavn.window.on('page-title-updated', onlyLinux((event, title) => {
                 var count = title.match(/\((\d+)\)/);
                     count = count ? count[1] : '';
 
             }));
 
-            whatsApp.window.on('page-title-updated', onlyWin((event, title) => {
+            saavn.window.on('page-title-updated', onlyWin((event, title) => {
                 var count = title.match(/\((\d+)\)/);
                     count = count ? count[1] : '';
 
                 if (parseInt(count) > 0) {
-                    if (!whatsApp.window.isFocused()) {
-                      whatsApp.window.flashFrame(true);
+                    if (!saavn.window.isFocused()) {
+                      saavn.window.flashFrame(true);
                     }
                     var badge = NativeImage.createFromPath(app.getAppPath() + "/assets/badges/badge-" + (count > 9 ? 0 : count) +".png");
-                    whatsApp.window.setOverlayIcon(badge, "new messages");
+                    saavn.window.setOverlayIcon(badge, "new messages");
                 } else {
-                    whatsApp.window.setOverlayIcon(null, "no new messages");
+                    saavn.window.setOverlayIcon(null, "no new messages");
                 }
             }));
 
-            whatsApp.window.webContents.on("new-window", (e, url) => {
+            saavn.window.webContents.on("new-window", (e, url) => {
                 require('shell').openExternal(url);
                 e.preventDefault();
             });
 
-            whatsApp.window.on('close', onlyOSX((e) => {
-                if (whatsApp.window.forceClose !== true) {
+            saavn.window.on('close', onlyOSX((e) => {
+                if (saavn.window.forceClose !== true) {
                     e.preventDefault();
-                    whatsApp.window.hide();
+                    saavn.window.hide();
                 }
             }));
 
-            whatsApp.window.on("close", function(){
+            saavn.window.on("close", function(){
                 if (settings.window) {
                     settings.window.close();
                     settings.window = null;
@@ -229,15 +229,15 @@
             });
 
             app.on('before-quit', onlyOSX(() => {
-                whatsApp.window.forceClose = true;
+                saavn.window.forceClose = true;
             }));
 
             app.on('before-quit', onlyLinux(() => {
-                whatsApp.window.forceClose = true;
+                saavn.window.forceClose = true;
             }));
 
             app.on('activate-with-no-open-windows', onlyOSX(() => {
-                whatsApp.window.show();
+                saavn.window.show();
             }));
 
             app.on('window-all-closed', onlyWin(() => {
@@ -311,6 +311,6 @@
     };
 
     app.on('ready', () => {
-        whatsApp.init();
+        saavn.init();
     });
 })(this);

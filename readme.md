@@ -1,8 +1,8 @@
-# WhatsApp Desktop
+# Saavn Desktop
 
-WhatsApp desktop client, based on the official WhatsApp web app. Build with [Electron](http://electron.atom.io/).  
+Saavn desktop client, based on the official Saavn web app. Build with [Electron](http://electron.atom.io/).  
 
-This is **NOT** an official product. This project does not attempt to reverse engineer the WhatsApp API or attempt to reimplement any part of the WhatsApp client. Any communication between the user and WhatsApp servers is handled by official WhatsApp Web itself; this is just a native wrapper for WhatsApp Web, like a browser.
+This is **NOT** an official product. This project does not attempt to reverse engineer the Saavn API or attempt to reimplement any part of the Saavn client. Any communication between the user and Saavn servers is handled by official Saavn Web itself; this is just a native wrapper for Saavn Web, like a browser.
 
 ## Features
 
@@ -17,7 +17,7 @@ This is **NOT** an official product. This project does not attempt to reverse en
   * Toggle avatar visibility  
   * Toggle preview of the messages visibility  
   * Set the size for the media thumbs  
-  * Proxy settings connect to WhatsApp web  
+  * Proxy settings connect to Saavn web  
 
 **Planned features:**  
 
@@ -25,7 +25,7 @@ This is **NOT** an official product. This project does not attempt to reverse en
 
 ## Installation
 
-Download and run the WhatsApp file from the [latest release](https://github.com/bcalik/Whatsapp-Desktop/releases).  
+Download and run the Saavn file from the [latest release](https://github.com/bcalik/Whatsapp-Desktop/releases).  
 
 *Note: Windows and Linux versions are test release.*
 
@@ -33,12 +33,12 @@ Download and run the WhatsApp file from the [latest release](https://github.com/
 
 In order to execute the program in Linux, first you should give it permission to the App:
 
-`sudo chmod u+x WhatsApp`  
-`./WhatsApp`  
+`sudo chmod u+x Saavn`  
+`./Saavn`  
 
 ## Contributions
 
-Contributions are welcome! For feature requests and bug reports please submit an [issue](https://github.com/bcalik/Whatsapp-Desktop/issues).
+Contributions are welcome! For feature requests and bug reports please submit an [issue](https://github.com/arkokoley/saavn/issues).
 
 ## Build
 

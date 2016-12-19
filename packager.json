@@ -1,7 +1,7 @@
 {
   "osx": {
-    "title": "WhatsApp",
-    "icon": "assets/osx/WhatsApp.icns",
+    "title": "Saavn",
+    "icon": "assets/osx/Saavn.icns",
     "icon-size": 80,
     "contents": [
       {
@@ -18,15 +18,15 @@
     ]
   },
   "win": {
-    "tittle": "WhatsApp",
-    "icon": "assets/win/whatsapp.ico",
+    "tittle": "Saavn",
+    "icon": "assets/win/saavn.ico",
     "icon-size": 48,
-    "app-bundle-id": "WhatsApp"
+    "app-bundle-id": "Saavn"
   },
   "linux": {
-    "tittle": "WhatsApp",
-    "icon": "assets/win/whatsapp.ico",
+    "tittle": "Saavn",
+    "icon": "assets/win/saavn.ico",
     "icon-size": 48,
-    "app-bundle-id": "WhatsApp"
+    "app-bundle-id": "Saavn"
   }
 }
