@@ -53,4 +53,4 @@ Wine needs to be installed. On OS X, it is installable via Homebrew:
 
 --
 
-> Made with :heart: at [Macellan](http://macellan.net)
+> Made with :heart: at [IIIT Bangalore](http://iiitb.ac.in)
