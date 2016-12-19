@@ -8,10 +8,10 @@ This is **NOT** an official product. This project does not attempt to reverse en
 
 * Cross platform. (OSX, Windows, Linux)  
 * Native notifications.  
-* System tray icon.  
-* Open links in browser.  
-* Badge with the number of notifications in the dock/taskbar.  
-* Dock icon bounces when a new message is received.  
+* Media Shortcuts/ Keybindings for music player
+  * leftArrow for Next song
+  * rightArrow for Previous song
+  * Space for pause/play
 * A couple of things can be configured:  
   * Proxy settings connect to Saavn web  
 
