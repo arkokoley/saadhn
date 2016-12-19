@@ -24,7 +24,7 @@ This is **NOT** an official product. This project does not attempt to reverse en
 
 ## Installation
 
-Download and run the Saavn file from the [latest release](https://github.com/bcalik/Whatsapp-Desktop/releases).  
+Download and run the Saavn file from the [latest release](https://github.com/arkokoley/saavn/releases).  
 
 *Note: Windows and Linux versions are test release.*
 
