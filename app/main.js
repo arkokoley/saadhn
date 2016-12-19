@@ -10,6 +10,7 @@
     var BrowserWindow = require('browser-window');
 
     var join = require('path').join;
+    const globalShortcut = require('electron').globalShortcut
 
     global.onlyOSX = function(callback) {
         if (process.platform === 'darwin') {
@@ -153,13 +154,39 @@
                 "title": "Saavn",
                 "webPreferences": {
                   "nodeIntegration": false,
+                  "webSecurity": false,
+                  "sandbox": true,
                   "preload": join(__dirname, 'js', 'injected.js')
                 }
             });
 
-            saavn.window.loadURL('http://www.saavn.com', {
+            saavn.window.loadURL('https://www.saavn.com', {
                 userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.52 Safari/537.36'
             });
+
+            // Bind Media Shortcuts - This wouldn't have been required if the
+            // client side code listened to these keys along with KEY_NEXT, KEY_SPACE etc.
+            // For now trigger functionality by remapping the keys
+            globalShortcut.register('MediaPlayPause', function () {
+              saavn.window.webContents.sendInputEvent({
+                type: 'keyDown',
+                keyCode: 'Space'
+              })
+            })
+
+            globalShortcut.register('MediaNextTrack', function () {
+              saavn.window.webContents.sendInputEvent({
+                type: 'keyDown',
+                keyCode: 'Right'
+              })
+            })
+
+            globalShortcut.register('MediaPreviousTrack', function () {
+              saavn.window.webContents.sendInputEvent({
+                type: 'keyDown',
+                keyCode: 'Left'
+              })
+            })
 
             if (config.get("useProxy")) {
                 var session = saavn.window.webContents.session;
@@ -201,11 +228,19 @@
                     saavn.window.setOverlayIcon(null, "no new messages");
                 }
             }));
+            // Navigation restricted to mainWindow only
+            var handleUrl = function (e, url) {
+              e.preventDefault()
 
-            saavn.window.webContents.on("new-window", (e, url) => {
-                require('shell').openExternal(url);
-                e.preventDefault();
-            });
+              // Opening saavn urls
+              if (url.replace('https://', '').replace('http://', '').indexOf('www.saavn.com') == 0)
+                saavn.window.loadURL(url)
+              else
+                // Open External URLs in the default web browser
+                require('shell').openExternal(url)
+            }
+            saavn.window.webContents.on("will-navigate", handleUrl);
+            saavn.window.webContents.on("new-window", handleUrl);
 
             saavn.window.on('close', onlyOSX((e) => {
                 if (saavn.window.forceClose !== true) {
@@ -230,10 +265,12 @@
 
             app.on('before-quit', onlyOSX(() => {
                 saavn.window.forceClose = true;
+                globalShortcut.unregisterAll();
             }));
 
             app.on('before-quit', onlyLinux(() => {
                 saavn.window.forceClose = true;
+                globalShortcut.unregisterAll();
             }));
 
             app.on('activate-with-no-open-windows', onlyOSX(() => {
@@ -242,6 +279,7 @@
 
             app.on('window-all-closed', onlyWin(() => {
                 app.quit();
+                globalShortcut.unregisterAll();
             }));
         }
     };
@@ -297,6 +335,7 @@
                     "frame": true,
                     "webPreferences": {
                       "nodeIntegration": true,
+                      "sandbox": true,
                     }
                 }
             );
