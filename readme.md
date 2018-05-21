@@ -1,4 +1,6 @@
 # Saavn Desktop
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn?ref=badge_shield)
+
 
 Saavn desktop client, based on the official Saavn web app. Build with [Electron](http://electron.atom.io/).  
 
@@ -54,3 +56,7 @@ Wine needs to be installed. On OS X, it is installable via Homebrew:
 --
 
 > Made with :heart: at [IIIT Bangalore](http://iiitb.ac.in)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn?ref=badge_large)
