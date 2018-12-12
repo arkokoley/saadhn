@@ -160,7 +160,7 @@
                 }
             });
 
-            saavn.window.loadURL('https://www.saavn.com', {
+            saavn.window.loadURL('https://www.jiosaavn.com', {
                 userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.52 Safari/537.36'
             });
 
@@ -233,7 +233,7 @@
               e.preventDefault()
 
               // Opening saavn urls
-              if (url.replace('https://', '').replace('http://', '').indexOf('www.saavn.com') == 0)
+              if (url.replace('https://', '').replace('http://', '').indexOf('www.jiosaavn.com') == 0)
                 saavn.window.loadURL(url)
               else
                 // Open External URLs in the default web browser
