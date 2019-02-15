@@ -1,10 +1,11 @@
 # Saavn Desktop
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn?ref=badge_shield)
 
+JioSaavn desktop client, based on the official JioSaavn web app. Buil with [Electron](http://electron.atom.io/).  
 
-Saavn desktop client, based on the official Saavn web app. Build with [Electron](http://electron.atom.io/).  
+![Screenshot](https://raw.githubusercontent.com/arkokoley/saavn/master/assets/screenshot.png)
 
-This is **NOT** an official product. This project does not attempt to reverse engineer the Saavn API or attempt to reimplement any part of the Saavn client. Any communication between the user and Saavn servers is handled by official Saavn Web itself; this is just a native wrapper for Saavn Web, like a browser.
+This is **NOT** an official product. This project does not attempt to reverse engineer the JioSaavn API or attempt to reimplement any part of the Saavn client. Any communication between the user and Saavn servers is handled by official JioSaavn Web itself; this is just a native wrapper for Saavn Web, like a browser.
 
 ## Features
 
@@ -15,7 +16,7 @@ This is **NOT** an official product. This project does not attempt to reverse en
   * rightArrow for Previous song
   * Space for pause/play
 * A couple of things can be configured:  
-  * Proxy settings connect to Saavn web  
+  * Proxy settings connect to JioSaavn web  
 
   **Not working:**
     * Login
@@ -55,7 +56,7 @@ Wine needs to be installed. On OS X, it is installable via Homebrew:
 
 --
 
-> Made with :heart: at [IIIT Bangalore](http://iiitb.ac.in)
+> Made with :heart: in :india: at [Zense](//zense.co.in) and [IIIT Bangalore](//www.iiitb.ac.in)
 
 
 ## License
