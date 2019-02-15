@@ -1,7 +1,7 @@
-# Saavn Desktop
+# JioSaavn Desktop
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn?ref=badge_shield)
 
-JioSaavn desktop client, based on the official JioSaavn web app. Buil with [Electron](http://electron.atom.io/).  
+JioSaavn desktop client, based on the official JioSaavn web app. Built with [Electron](http://electron.atom.io/).  
 
 ![Screenshot](https://raw.githubusercontent.com/arkokoley/saavn/master/assets/screenshot.png)
 
