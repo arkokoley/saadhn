@@ -1,19 +1,19 @@
 {
-  "name": "saavn-desktop",
+  "name": "Saadhn",
   "version": "0.3.3",
-  "repository": "https://github.com/bcalik/Whatsapp-Desktop.git",
-  "description": "Unofficial Saavn Desktop Client. Build with Electron.",
+  "repository": "https://github.com/arkokoley/saadhn.git",
+  "description": "Unofficial Saadhn Desktop Client. Build with Electron.",
   "main": "main.js",
   "scripts": {
     "dev": "electron --debug=5858 ./app",
     "clean": "rm -rf ./dist",
-    "clean:win": "rm -rf ./dist/Saavn-win32-x64",
-    "clean:osx": "rm -rf ./dist/Saavn-darwin-x64",
-    "clean:linux": "rm -rf ./dist/Saavn-linux-x64",
+    "clean:win": "rm -rf ./dist/Saadhn-win32-x64",
+    "clean:osx": "rm -rf ./dist/Saadhn-darwin-x64",
+    "clean:linux": "rm -rf ./dist/Saadhn-linux-x64",
     "build": "npm run clean && npm run build:osx && npm run build:win && npm run build:linux",
-    "build:win": "npm run clean:win && electron-packager ./app \"Saavn\" --out=dist --platform=win32 --arch=x64 --version=0.37.3 --icon=assets/win/saavn.ico",
-    "build:osx": "npm run clean:osx && electron-packager ./app \"Saavn\" --out=dist --platform=darwin --arch=x64 --version=0.37.3 --icon=assets/osx/Saavn.icns",
-    "build:linux": "npm run clean:linux && electron-packager ./app \"Saavn\" --out=dist --platform=linux --arch=x64 --version=0.37.3 --icon=assets/win/saavn.ico"
+    "build:win": "npm run clean:win && electron-packager ./app \"Saadhn\" --out=dist --platform=win32 --arch=x64 --version=0.37.3 --icon=assets/Saadhn.ico",
+    "build:osx": "npm run clean:osx && electron-packager ./app \"Saadhn\" --out=dist --platform=darwin --arch=x64 --version=0.37.3 --icon=assets/Saadhn.icns",
+    "build:linux": "npm run clean:linux && electron-packager ./app \"Saadhn\" --out=dist --platform=linux --arch=x64 --version=0.37.3 --icon=assets/Saadhn.ico"
   },
   "devDependencies": {
     "electron-packager": "^6.0.0",

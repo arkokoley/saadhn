@@ -131,7 +131,7 @@
     ];
 
     if (process.platform == 'darwin') {
-        var name = 'Saavn Desktop';
+        var name = 'Saadhn';
         template.unshift({
             label: name,
             submenu: [

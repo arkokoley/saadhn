@@ -1,11 +1,10 @@
-# JioSaavn Desktop
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Farkokoley%2Fsaavn?ref=badge_shield)
+# Saadhn: Desktop App for JioSaavn
 
-JioSaavn desktop client, based on the official JioSaavn web app. Built with [Electron](http://electron.atom.io/).  
+A desktop client for JioSaavn, based on the official JioSaavn web app. Built with [Electron](http://electron.atom.io/).  
 
-![Screenshot](https://raw.githubusercontent.com/arkokoley/saavn/master/assets/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/arkokoley/saadhn/master/assets/screenshot.png)
 
-This is **NOT** an official product. This project does not attempt to reverse engineer the JioSaavn API or attempt to reimplement any part of the Saavn client. Any communication between the user and Saavn servers is handled by official JioSaavn Web itself; this is just a native wrapper for Saavn Web, like a browser.
+This is **NOT** an official product. This project does not attempt to reverse engineer the JioSaavn API or attempt to reimplement any part of the JioSaavn client. Any communication between the user and JioSaavn servers is handled by official JioSaavn Web itself; this is just a native wrapper for JioSaavn Web, like a browser.
 
 ## Features
 
@@ -27,7 +26,7 @@ This is **NOT** an official product. This project does not attempt to reverse en
 
 ## Installation
 
-Download and run the Saavn file from the [latest release](https://github.com/arkokoley/saavn/releases).  
+Download and run the Saavn file from the [latest release](https://github.com/arkokoley/saadhn/releases).  
 
 *Note: Windows and Linux versions are test release.*
 
@@ -35,12 +34,12 @@ Download and run the Saavn file from the [latest release](https://github.com/ark
 
 In order to execute the program in Linux, first you should give it permission to the App:
 
-`sudo chmod u+x Saavn`  
-`./Saavn`  
+`sudo chmod u+x Saadhn`  
+`./Saadhn`  
 
 ## Contributions
 
-Contributions are welcome! For feature requests and bug reports please submit an [issue](https://github.com/arkokoley/saavn/issues).
+Contributions are welcome! For feature requests and bug reports please submit an [issue](https://github.com/arkokoley/saadhn/issues).
 
 ## Build
 

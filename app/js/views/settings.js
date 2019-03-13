@@ -1,4 +1,4 @@
-var saavn = require('remote').getGlobal("saavn");
+var saadhn = require('remote').getGlobal("saadhn");
 var settings = require('remote').getGlobal('settings');
 var config = require('remote').getGlobal('config');
 
@@ -54,7 +54,7 @@ var SettingsView = {
         }
         config.saveConfiguration();
         config.applyConfiguration();
-        saavn.window.reload();
+        saadhn.window.reload();
     }
 };
 

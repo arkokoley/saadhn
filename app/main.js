@@ -58,7 +58,7 @@
         },
 
         applyConfiguration() {
-            saavn.window.webContents.on('dom-ready', function (event, two) {
+            saadhn.window.webContents.on('dom-ready', function (event, two) {
                 var noAvatar = '.chat-avatar{display: none}';
                 var noPreview = '.chat-secondary .chat-status{z-index: -999;}';
 
@@ -80,7 +80,7 @@
             });
 
             if (config.get("useProxy")) {
-                var session = saavn.window.webContents.session;
+                var session = saadhn.window.webContents.session;
                 var httpProxy = config.get("httpProxy");
                 var httpsProxy = config.get("httpsProxy") || httpProxy;
                 if(httpProxy) {
@@ -108,31 +108,31 @@
         }
     };
 
-    global.saavn = {
+    global.saadhn = {
         init() {
-            saavn.createMenu();
-            saavn.createTray();
+            saadhn.createMenu();
+            saadhn.createTray();
 
-            saavn.clearCache();
+            saadhn.clearCache();
             config.init();
-            saavn.openWindow();
+            saadhn.openWindow();
             config.applyConfiguration();
         },
 
         createMenu() {
-            saavn.menu =
+            saadhn.menu =
                 AppMenu.buildFromTemplate(require('./menu'));
-                AppMenu.setApplicationMenu(saavn.menu);
+                AppMenu.setApplicationMenu(saadhn.menu);
         },
 
         createTray() {
-            saavn.tray = new AppTray(__dirname + '/assets/img/trayTemplate.png');
+            saadhn.tray = new AppTray(__dirname + '/assets/icon.png');
 
-            saavn.tray.on('clicked', () => {
-                saavn.window.show();
+            saadhn.tray.on('clicked', () => {
+                saadhn.window.show();
             });
 
-            saavn.tray.setToolTip('Saavn Desktop');
+            saadhn.tray.setToolTip('Saavn Desktop');
         },
 
         clearCache() {
@@ -142,16 +142,16 @@
         },
 
         openWindow() {
-            saavn.window = new BrowserWindow({
+            saadhn.window = new BrowserWindow({
                 "y": config.get("posY"),
                 "x": config.get("posX"),
                 "width": config.get("width"),
                 "height": config.get("height"),
                 "minWdth": 600,
                 "minHeight": 600,
-                "icon": __dirname + 'assets/icon/icon.png',
+                "icon": __dirname + 'assets/icon.png',
                 //"type": "toolbar",
-                "title": "Saavn",
+                "title": "Saadhn",
                 "webPreferences": {
                   "nodeIntegration": false,
                   "webSecurity": false,
@@ -160,7 +160,7 @@
                 }
             });
 
-            saavn.window.loadURL('https://www.jiosaavn.com', {
+            saadhn.window.loadURL('https://www.jiosaavn.com', {
                 userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.52 Safari/537.36'
             });
 
@@ -168,28 +168,28 @@
             // client side code listened to these keys along with KEY_NEXT, KEY_SPACE etc.
             // For now trigger functionality by remapping the keys
             globalShortcut.register('MediaPlayPause', function () {
-              saavn.window.webContents.sendInputEvent({
+              saadhn.window.webContents.sendInputEvent({
                 type: 'keyDown',
                 keyCode: 'Space'
               })
             })
 
             globalShortcut.register('MediaNextTrack', function () {
-              saavn.window.webContents.sendInputEvent({
+              saadhn.window.webContents.sendInputEvent({
                 type: 'keyDown',
                 keyCode: 'Right'
               })
             })
 
             globalShortcut.register('MediaPreviousTrack', function () {
-              saavn.window.webContents.sendInputEvent({
+              saadhn.window.webContents.sendInputEvent({
                 type: 'keyDown',
                 keyCode: 'Left'
               })
             })
 
             if (config.get("useProxy")) {
-                var session = saavn.window.webContents.session;
+                var session = saadhn.window.webContents.session;
                 var httpProxy = config.get("httpProxy");
                 var httpsProxy = config.get("httpsProxy") || httpProxy;
                 if (httpProxy) {
@@ -197,9 +197,9 @@
                 }
             }
 
-            saavn.window.show();
+            saadhn.window.show();
 
-            saavn.window.on('page-title-updated', onlyOSX((event, title) => {
+            saadhn.window.on('page-title-updated', onlyOSX((event, title) => {
                 var count = title.match(/\((\d+)\)/);
                     count = count ? count[1] : '';
 
@@ -208,48 +208,28 @@
                 //     app.dock.bounce('informational');
             }));
 
-            saavn.window.on('page-title-updated', onlyLinux((event, title) => {
-                var count = title.match(/\((\d+)\)/);
-                    count = count ? count[1] : '';
-
-            }));
-
-            saavn.window.on('page-title-updated', onlyWin((event, title) => {
-                var count = title.match(/\((\d+)\)/);
-                    count = count ? count[1] : '';
-
-                if (parseInt(count) > 0) {
-                    if (!saavn.window.isFocused()) {
-                      saavn.window.flashFrame(true);
-                    }
-                    var badge = NativeImage.createFromPath(app.getAppPath() + "/assets/badges/badge-" + (count > 9 ? 0 : count) +".png");
-                    saavn.window.setOverlayIcon(badge, "new messages");
-                } else {
-                    saavn.window.setOverlayIcon(null, "no new messages");
-                }
-            }));
             // Navigation restricted to mainWindow only
             var handleUrl = function (e, url) {
               e.preventDefault()
 
-              // Opening saavn urls
+              // Opening saadhn urls
               if (url.replace('https://', '').replace('http://', '').indexOf('www.jiosaavn.com') == 0)
-                saavn.window.loadURL(url)
+                saadhn.window.loadURL(url)
               else
                 // Open External URLs in the default web browser
                 require('shell').openExternal(url)
             }
-            saavn.window.webContents.on("will-navigate", handleUrl);
-            saavn.window.webContents.on("new-window", handleUrl);
+            saadhn.window.webContents.on("will-navigate", handleUrl);
+            saadhn.window.webContents.on("new-window", handleUrl);
 
-            saavn.window.on('close', onlyOSX((e) => {
-                if (saavn.window.forceClose !== true) {
+            saadhn.window.on('close', onlyOSX((e) => {
+                if (saadhn.window.forceClose !== true) {
                     e.preventDefault();
-                    saavn.window.hide();
+                    saadhn.window.hide();
                 }
             }));
 
-            saavn.window.on("close", function(){
+            saadhn.window.on("close", function(){
                 if (settings.window) {
                     settings.window.close();
                     settings.window = null;
@@ -264,17 +244,17 @@
             });
 
             app.on('before-quit', onlyOSX(() => {
-                saavn.window.forceClose = true;
+                saadhn.window.forceClose = true;
                 globalShortcut.unregisterAll();
             }));
 
             app.on('before-quit', onlyLinux(() => {
-                saavn.window.forceClose = true;
+                saadhn.window.forceClose = true;
                 globalShortcut.unregisterAll();
             }));
 
             app.on('activate-with-no-open-windows', onlyOSX(() => {
-                saavn.window.show();
+                saadhn.window.show();
             }));
 
             app.on('window-all-closed', onlyWin(() => {
@@ -350,6 +330,6 @@
     };
 
     app.on('ready', () => {
-        saavn.init();
+        saadhn.init();
     });
 })(this);

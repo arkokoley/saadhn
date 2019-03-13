@@ -1,7 +1,7 @@
 {
   "osx": {
-    "title": "Saavn",
-    "icon": "assets/osx/Saavn.icns",
+    "title": "Saadhn",
+    "icon": "assets/Saadhn.icns",
     "icon-size": 80,
     "contents": [
       {
@@ -18,15 +18,15 @@
     ]
   },
   "win": {
-    "tittle": "Saavn",
-    "icon": "assets/win/saavn.ico",
+    "tittle": "Saadhn",
+    "icon": "assets/Saadhn.ico",
     "icon-size": 48,
-    "app-bundle-id": "Saavn"
+    "app-bundle-id": "Saadhn"
   },
   "linux": {
-    "tittle": "Saavn",
-    "icon": "assets/win/saavn.ico",
+    "tittle": "Saadhn",
+    "icon": "assets/Saadhn.ico",
     "icon-size": 48,
-    "app-bundle-id": "Saavn"
+    "app-bundle-id": "Saadhn"
   }
 }
